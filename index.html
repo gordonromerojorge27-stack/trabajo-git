@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -73,5 +73,26 @@ footer{text-align:center;padding:1.4rem;font-size:.85rem;color:var(--suave);bord
 </main>
 
 <footer>Página web básica · Trabajo de Redes · Universidad Pontificia Bolivariana</footer>
+<script>
+  const nombre = prompt("¿Cuál es tu nombre?");
+  const fecha = prompt("¿Cuál es tu fecha de nacimiento? (AAAA-MM-DD)");
+
+  const nacimiento = new Date(fecha);
+  const hoy = new Date();
+
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `<p style="color:white; background:#b00020; padding:12px; margin:0; text-align:center;">
+       Hola ${nombre}, tienes ${edad} años.
+     </p>`
+  );
+</script>
 </body>
 </html>
+
